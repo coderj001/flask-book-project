@@ -1,6 +1,6 @@
 import os
 from flask import Flask
-from flask_restplus import Api
+from flask_restx import Api
 from mongoengine import connect
 from config import *
 from v1.resources.routes import initialize_routes

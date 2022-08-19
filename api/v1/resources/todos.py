@@ -1,6 +1,6 @@
 import json
 from flask import abort
-from flask_restplus import Namespace, Resource
+from flask_restx import Namespace, Resource
 from v1.database.models import Todo
 from mongoengine import DoesNotExist
 
