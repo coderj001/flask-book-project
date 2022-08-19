@@ -20,15 +20,6 @@ services:
       - 27017:27017
     volumes:
       - db-data:/data/db
-  mongoclient:
-    image: mongoclient/mongoclient:latest
-    container_name: mongoclient
-    depends_on:
-      - mongodb
-    links:
-      - mongodb
-    ports:
-      - 3300:3000
 
 volumes:
   db-data:
