@@ -7,17 +7,28 @@ services:
       - 5100:5100
     depends_on:
       - mongodb
+    links:
+      - mongodb
     environment:
       - ENV=Development
     volumes:
       - .:/code
   mongodb:
-    image: mongo
-    container_name: db
+    image: mongo:latest
+    container_name: mongodb
     ports:
       - 27017:27017
     volumes:
       - db-data:/data/db
+  mongoclient:
+    image: mongoclient/mongoclient:latest
+    container_name: mongoclient
+    depends_on:
+      - mongodb
+    links:
+      - mongodb
+    ports:
+      - 3300:3000
 
 volumes:
   db-data:
