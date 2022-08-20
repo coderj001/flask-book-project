@@ -60,7 +60,7 @@ class TransactionReturnApi(Resource):
 transaction_params1 = transactions.parser()
 transaction_params1.add_argument('book_name', type=str, help='Book name', location='args')
 
-@transactions.route('/api1')
+@transactions.route('/book_detail')
 @transactions.response(404, 'Transaction not found')
 class Transaction1Api(Resource):
     @transactions.expect(transaction_params1)
@@ -80,7 +80,7 @@ class Transaction1Api(Resource):
 transaction_params2 = transactions.parser()
 transaction_params2.add_argument('book_name', type=str, help='Book name', location='args')
 
-@transactions.route('/api2')
+@transactions.route('/input_book_data')
 @transactions.response(404, 'Transaction not found')
 class Transaction2Api(Resource):
     @transactions.expect(transaction_params2)
@@ -103,7 +103,7 @@ class Transaction2Api(Resource):
 transaction_params3 = transactions.parser()
 transaction_params3.add_argument('person_name', type=str, help='Person name', location='args')
 
-@transactions.route('/api3')
+@transactions.route('/person_data')
 @transactions.response(404, 'Transaction not found')
 class Transaction3Api(Resource):
     @transactions.expect(transaction_params3)
@@ -124,7 +124,7 @@ class Transaction3Api(Resource):
 transaction_params4 = transactions.parser()
 transaction_params4.add_argument('date_range', type=str, help='Range of date', location='args')
 
-@transactions.route('/api4')
+@transactions.route('/list_of_book')
 @transactions.response(404, 'Transaction not found')
 class Transaction4Api(Resource):
     @transactions.expect(transaction_params4)

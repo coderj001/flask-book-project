@@ -9,7 +9,7 @@ env = os.environ.get('ENV', None)
 app = Flask(__name__)
 config = globals()[env if env else 'Prod']
 app.config.from_object(config)
-connect('app', host=config.MONGODB_URL)
+connect('app', host="mongodb+srv://rj:lDkH8c6FC6lJjpqA@cluster0.xy5dn.mongodb.net/")
 api = Api(app)
 
 initialize_routes(api)
