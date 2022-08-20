@@ -5,8 +5,9 @@ from mongoengine import connect
 from config import *
 from v1.resources.routes import initialize_routes
 
+env = os.environ.get('ENV', None) 
 app = Flask(__name__)
-config = globals()[os.environ['ENV']]
+config = globals()[env if env else 'Prod']
 app.config.from_object(config)
 connect('app', host=config.MONGODB_URL)
 api = Api(app)
