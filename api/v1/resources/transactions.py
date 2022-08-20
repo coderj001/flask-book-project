@@ -121,7 +121,7 @@ class Transaction3Api(Resource):
             abort(404)
         except:
             abort(500)
-            
+
 transaction_params4 = transactions.parser()
 transaction_params4.add_argument('date_range', type=str, help='Range of date', location='args')
 
@@ -136,10 +136,11 @@ class Transaction4Api(Resource):
             date_min, date_max = datetime.strptime(date_min, '%d/%m/%y'),datetime.strptime(date_max, '%d/%m/%y') 
             if date_min > date_max:
                 date_min, date_max = date_max, date_min
-            t1 = Transaction.objects(date__lte=date_max, date__gte=date_min, type="issued")
+            t1 = Transaction.objects(type="issued")
             list_of_books = []
             for t in t1:
-                list_of_books.append(t.book.book_name)
+                if datetime.strptime(t.data, '%d/%m/%y') > date_min and  datetime.strptime(t.data, '%d/%m/%y') < date_max:
+                    list_of_books.append(t.book.book_name)
             return {"msg": "success", "list_of_books": list_of_books}, 200
         except(DoesNotExist):
             abort(404)
