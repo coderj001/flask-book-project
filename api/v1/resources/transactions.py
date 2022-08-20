@@ -53,8 +53,7 @@ class TransactionReturnApi(Resource):
             t.rent = rent
             t.save()
             return {"msg": "success", "rent": f"Total rent {rent}"}, 200
-        except(DoesNotExist):
-            abort(404)
+        except(DoesNotExist): abort(404)
         except:
             abort(500)
             

@@ -1,6 +1,6 @@
 class BaseConfig:
     HOST = "0.0.0.0"
-    PORT = 5100
+    PORT = 8080
     DEBUG = False
 
 
@@ -15,4 +15,4 @@ class Testing(BaseConfig):
 
 
 class Prod(BaseConfig):
-    MONGODB_URL = "mongodb://mongodb/prod"
+    MONGODB_URL = "mongodb+srv://rj:lDkH8c6FC6lJjpqA@cluster0.xy5dn.mongodb.net/?retryWrites=true&w=majority"
